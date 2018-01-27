@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Mi Familia</h1>
-<form>
+<form id="familyform">
 1. * Which Family are you interested in or belong to?
 <ul>
   <li>
@@ -35,9 +35,11 @@
       <input type="radio" value="Other" name="family"/> 
       Other
     </label>
-     <label>
-      <input type="text"="Other" name="family"/> 
-      Other
+    <br/>
+     <label id="otherlastname">
+      If you picked Other, enter the last name here
+      <input type="text" name="Other"/> 
+      
     </label>
   </li>
 </ul>
@@ -45,6 +47,28 @@
     Submit
   </button>
 </form>
+<script>
+//Hide the Other Text Box
+var lastname = document.getElementById("otherlastname");
+lastname.style.visibility = 'hidden';
+   
+var formElement=document.getElementById("familyform")
+//If user selects other, then text box will appear again
+formElement.addEventListener('change', function (event) {
+//If the event target is the other radio, then show last name element
+if (event.target.value ==="Other") {
+  lastname.style.visibility = 'visible';
+}
+else { 
+  lastname.style.visibility = 'hidden';
+
+}
+
+  
+});
+
+</script>
+
 </body>
 </html>
 
